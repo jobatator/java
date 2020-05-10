@@ -18,6 +18,12 @@ public class ClientOptions {
         return this;
     }
 
+    public ClientOptions setCredentials(String username, String password) {
+        this.username = username;
+        this.password = password;
+        return this;
+    }
+
     public ClientOptions setUsername(String username) {
         this.username = username;
         return this;
