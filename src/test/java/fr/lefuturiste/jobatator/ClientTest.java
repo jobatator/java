@@ -142,6 +142,6 @@ public class ClientTest
                 job = jobs.getJSONObject(i);
         assertNotNull(job);
         assertEquals(Client.JOB_ERRORED, job.getString("State"));
-        client.updateJob("errored_queue", job.getString("ID"), Client.JOB_DONE);
+        client.updateJob(job.getString("ID"), Client.JOB_DONE);
     }
 }

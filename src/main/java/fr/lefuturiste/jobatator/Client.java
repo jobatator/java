@@ -116,8 +116,8 @@ public class Client {
         startWorker(queue, -1);
     }
 
-    public void updateJob(String queue, String jobId, String status) throws IOException, InvalidResponseException {
-        send("UPDATE_JOB " + queue + " " + jobId + " " + status);
+    public void updateJob(String jobId, String status) throws IOException, InvalidResponseException {
+        send("UPDATE_JOB " + jobId + " " + status);
         if (!input.readLine().equals("OK"))
             throw new InvalidResponseException("Update job");
     }
@@ -141,9 +141,9 @@ public class Client {
                     e.printStackTrace();
                 }
                 if (result) {
-                    updateJob(queue, job.getString("ID"), JOB_DONE);
+                    updateJob(job.getString("ID"), JOB_DONE);
                 } else {
-                    updateJob(queue, job.getString("ID"), JOB_ERRORED);
+                    updateJob(job.getString("ID"), JOB_ERRORED);
                 }
             }
             if (jobToProcess > 0) {
